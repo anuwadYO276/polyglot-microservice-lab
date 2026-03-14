@@ -1,0 +1,18 @@
+# Node
+node_modules/
+
+# Python
+__pycache__/
+
+# Rust
+target/
+
+# .NET
+bin/
+obj/
+
+# PHP
+vendor/
+.env
+.DS_Store
+*.log

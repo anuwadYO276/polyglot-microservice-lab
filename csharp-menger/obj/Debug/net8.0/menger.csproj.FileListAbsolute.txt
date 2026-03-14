@@ -1,0 +1,14 @@
+/app/bin/Debug/net8.0/menger
+/app/bin/Debug/net8.0/menger.deps.json
+/app/bin/Debug/net8.0/menger.runtimeconfig.json
+/app/bin/Debug/net8.0/menger.dll
+/app/bin/Debug/net8.0/menger.pdb
+/app/obj/Debug/net8.0/menger.GeneratedMSBuildEditorConfig.editorconfig
+/app/obj/Debug/net8.0/menger.AssemblyInfoInputs.cache
+/app/obj/Debug/net8.0/menger.AssemblyInfo.cs
+/app/obj/Debug/net8.0/menger.csproj.CoreCompileInputs.cache
+/app/obj/Debug/net8.0/menger.dll
+/app/obj/Debug/net8.0/refint/menger.dll
+/app/obj/Debug/net8.0/menger.pdb
+/app/obj/Debug/net8.0/menger.genruntimeconfig.cache
+/app/obj/Debug/net8.0/ref/menger.dll

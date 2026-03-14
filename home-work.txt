@@ -1,0 +1,67 @@
+- RUST
+- Java
+- GO
+- Bash
+- Dart
+- Javascript
+- Python
+- PHP
+- C#
+
+# RUST
+package menger : cargo
+Dependency file: Cargo.toml
+Source code: src/main.rs
+Runtime: OS executable file
+
+# Java
+package menger : maven
+Dependency file: pom.xml
+Source code: src/main/java/com/example/menger/Main.java
+Runtime: Java Virtual Machine (JVM)
+
+# GO
+package menger : go modules
+Dependency file: go.mod
+Source code: main.go
+Runtime: OS executable file
+
+# Bash
+package menger : bash script
+Dependency file: N/A
+Source code: menger.sh
+Runtime: Bash shell
+
+# Dart
+package menger : pub
+Dependency file: pubspec.yaml
+Source code: bin/main.dart
+Runtime: Dart VM
+
+# Javascript
+package menger : npm
+Dependency file: package.json
+Source code: src/index.js
+Runtime: Node.js
+
+# Python
+package menger : pip
+Dependency file: requirements.txt
+Source code: main.py
+Runtime: Python interpreter
+
+# PHP
+package menger : composer
+Dependency file: composer.json
+Source code: src/index.php
+Runtime: PHP interpreter
+
+# C#
+package menger : .NET
+Dependency file: menger.csproj
+Source code: Program.cs
+Runtime: .NET runtime
+
+
+
+metadata

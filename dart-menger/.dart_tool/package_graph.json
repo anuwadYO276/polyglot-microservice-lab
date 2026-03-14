@@ -1,0 +1,14 @@
+{
+  "roots": [
+    "dart_menger"
+  ],
+  "packages": [
+    {
+      "name": "dart_menger",
+      "version": "1.0.0",
+      "dependencies": [],
+      "devDependencies": []
+    }
+  ],
+  "configVersion": 1
+}

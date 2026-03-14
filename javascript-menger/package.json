@@ -1,0 +1,9 @@
+{
+  "name": "javascript-menger",
+  "version": "1.0.0",
+  "description": "simple node microservice",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  }
+}

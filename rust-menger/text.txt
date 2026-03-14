@@ -1,0 +1,9 @@
+
+
+PS C:\Project\microservice\memo-rust> docker rm -f rust-menger
+rust-menger
+PS C:\Project\microservice\memo-rust> docker run -dt --name rust-menger -p 8087:8087 rust-menger
+
+
+docker rm -f rust-menger
+docker run -dt --name rust-menger -p 8087:8087 rust-menger

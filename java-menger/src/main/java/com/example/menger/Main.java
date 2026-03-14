@@ -1,38 +1,31 @@
 package com.example.menger;
 
-import java.io.OutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
+@SpringBootApplication
+@RestController
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    @GetMapping("/")
+    public Map<String,Object> info() {
 
-        ServerSocket server = new ServerSocket(8088);
+        return Map.of(
+            "java-menger", Map.of(
+                "package_manager","maven",
+                "dependency_file","pom.xml",
+                "source_code","src/main/java/com/example/menger/Main.java",
+                "runtime","Java Virtual Machine (JVM)"
+            )
+        );
 
-        System.out.println("Java server running on port 8088");
+    }
 
-        while (true) {
-            Socket socket = server.accept();
-            System.out.println("Connection received");
-
-            String json = "{ \"java-menger\": { " +
-                    "\"package_manager\": \"maven\", " +
-                    "\"dependency_file\": \"pom.xml\", " +
-                    "\"source_code\": \"src/main/java/com/example/menger/Main.java\", " +
-                    "\"runtime\": \"Java Virtual Machine\" }}";
-
-            String response =
-                    "HTTP/1.1 200 OK\r\n" +
-                    "Content-Type: application/json\r\n" +
-                    "Content-Length: " + json.length() + "\r\n\r\n" +
-                    json;
-
-            OutputStream out = socket.getOutputStream();
-            out.write(response.getBytes());
-            out.flush();
-
-            socket.close();
-        }
+    public static void main(String[] args) {
+        SpringApplication.run(Main.class, args);
     }
 }

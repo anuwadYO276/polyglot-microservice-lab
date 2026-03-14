@@ -1,33 +1,31 @@
-import 'dart:io';
+import 'dart:convert';
+import 'package:shelf/shelf.dart';
+import 'package:shelf/shelf_io.dart' as io;
+import 'package:shelf_router/shelf_router.dart';
 
 void main() async {
-  final server = await ServerSocket.bind('0.0.0.0', 8091);
 
-  print("Dart server running on port 8091");
+  final router = Router();
 
-  await for (Socket socket in server) {
-    print("Connection received");
+  router.get('/', (Request request) {
 
-    final json = '''
-{
-"dart-menger":{
-"package_manager":"pub",
-"dependency_file":"pubspec.yaml",
-"source_code":"bin/main.dart",
-"runtime":"Dart VM"
-}
-}
-''';
+    final data = {
+      "dart-menger": {
+        "package_manager": "pub",
+        "dependency_file": "pubspec.yaml",
+        "source_code": "bin/main.dart",
+        "runtime": "Dart VM"
+      }
+    };
 
-    final response =
-        "HTTP/1.1 200 OK\r\n"
-        "Content-Type: application/json\r\n"
-        "Content-Length: ${json.length}\r\n"
-        "\r\n"
-        "$json";
+    return Response.ok(
+      jsonEncode(data),
+      headers: {'Content-Type': 'application/json'},
+    );
 
-    socket.write(response);
-    await socket.flush();
-    await socket.close();
-  }
+  });
+
+  final server = await io.serve(router, '0.0.0.0', 8091);
+
+  print("Dart Shelf server running on port ${server.port}");
 }

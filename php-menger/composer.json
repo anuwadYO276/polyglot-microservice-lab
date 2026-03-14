@@ -1,5 +1,8 @@
 {
   "name": "menger/php-menger",
   "description": "simple php microservice",
-  "require": {}
+  "require": {
+    "slim/slim": "^4.0",
+    "slim/psr7": "^1.6"
+  }
 }

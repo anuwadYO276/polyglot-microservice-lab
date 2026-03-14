@@ -1,35 +1,25 @@
 <?php
 
-$port = 8094;
+require __DIR__ . '/../vendor/autoload.php';
 
-$socket = stream_socket_server("tcp://0.0.0.0:$port", $errno, $errstr);
+use Slim\Factory\AppFactory;
 
-if (!$socket) {
-    echo "Error: $errstr ($errno)\n";
-    exit(1);
-}
+$app = AppFactory::create();
 
-echo "PHP server running on port $port\n";
+$app->get('/', function ($request, $response) {
 
-while ($conn = stream_socket_accept($socket)) {
-
-    echo "Connection received\n";
-
-    $json = json_encode([
+    $data = [
         "php-menger" => [
             "package_manager" => "composer",
             "dependency_file" => "composer.json",
             "source_code" => "src/index.php",
             "runtime" => "PHP interpreter"
         ]
-    ]);
+    ];
 
-    $response =
-        "HTTP/1.1 200 OK\r\n" .
-        "Content-Type: application/json\r\n" .
-        "Content-Length: " . strlen($json) . "\r\n\r\n" .
-        $json;
+    $response->getBody()->write(json_encode($data));
 
-    fwrite($conn, $response);
-    fclose($conn);
-}
+    return $response->withHeader('Content-Type', 'application/json');
+});
+
+$app->run();

@@ -13,7 +13,6 @@ public class Main {
 
     @GetMapping("/")
     public Map<String,Object> info() {
-
         return Map.of(
             "java-menger", Map.of(
                 "package_manager","maven",
@@ -22,7 +21,6 @@ public class Main {
                 "runtime","Java Virtual Machine (JVM)"
             )
         );
-
     }
 
     public static void main(String[] args) {

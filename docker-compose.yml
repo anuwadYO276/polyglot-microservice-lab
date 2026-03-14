@@ -16,35 +16,23 @@ services:
       - ./java-menger:/app
     command: mvn compile exec:java -Dexec.mainClass="com.example.menger.Main"
     ports:
-      - "8088:8088"
+      - "8088:8080"
 
   go:
     container_name: go-menger
     build: ./go-menger
-    working_dir: /app
-    volumes:
-      - ./go-menger:/app
-    command: go run main.go
     ports:
       - "8089:8089"
 
   bash:
     container_name: bash-menger
     build: ./bash-menger
-    working_dir: /app
-    volumes:
-      - ./bash-menger:/app
-    command: bash menger.sh
     ports:
       - "8090:8090"
 
   dart:
     container_name: dart-menger
     build: ./dart-menger
-    working_dir: /app
-    volumes:
-      - ./dart-menger:/app
-    command: dart run bin/main.dart
     ports:
       - "8091:8091"
 
@@ -64,7 +52,7 @@ services:
     working_dir: /app
     volumes:
       - ./python-menger:/app
-    command: python main.py
+    command: uvicorn main:app --host 0.0.0.0 --port 8093
     ports:
       - "8093:8093"
 
@@ -74,9 +62,9 @@ services:
     working_dir: /app
     volumes:
       - ./php-menger:/app
-    command: php src/index.php
+    command: php -S 0.0.0.0:8000 -t src
     ports:
-      - "8094:8094"
+      - "8094:8000"
 
   csharp:
     container_name: csharp-menger
@@ -86,4 +74,4 @@ services:
       - ./csharp-menger:/app
     command: dotnet run
     ports:
-      - "8095:8095"
+      - "8095:8080"

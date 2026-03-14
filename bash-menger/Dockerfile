@@ -1,11 +1,11 @@
-FROM ubuntu:22.04
-
-RUN apt-get update && apt-get install -y netcat bash
+FROM alpine:3.19
 
 WORKDIR /app
+
+RUN apk add --no-cache bash netcat-openbsd
 
 COPY menger.sh .
 
 RUN chmod +x menger.sh
 
-CMD ["./menger.sh"]
+CMD ["bash", "menger.sh"]

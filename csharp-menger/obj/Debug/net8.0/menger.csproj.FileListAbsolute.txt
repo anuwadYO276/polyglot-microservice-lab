@@ -12,3 +12,12 @@
 /app/obj/Debug/net8.0/menger.pdb
 /app/obj/Debug/net8.0/menger.genruntimeconfig.cache
 /app/obj/Debug/net8.0/ref/menger.dll
+/app/obj/Debug/net8.0/menger.MvcApplicationPartsAssemblyInfo.cache
+/app/obj/Debug/net8.0/staticwebassets.build.json
+/app/obj/Debug/net8.0/staticwebassets.development.json
+/app/obj/Debug/net8.0/staticwebassets/msbuild.menger.Microsoft.AspNetCore.StaticWebAssets.props
+/app/obj/Debug/net8.0/staticwebassets/msbuild.build.menger.props
+/app/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.menger.props
+/app/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.menger.props
+/app/obj/Debug/net8.0/staticwebassets.pack.json
+/app/obj/Debug/net8.0/scopedcss/bundle/menger.styles.css

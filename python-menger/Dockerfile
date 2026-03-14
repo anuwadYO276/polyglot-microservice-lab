@@ -2,8 +2,12 @@ FROM python:3.12
 
 WORKDIR /app
 
-COPY . .
+COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
-CMD ["python","main.py"]
+COPY . .
+
+EXPOSE 8093
+
+CMD ["uvicorn","main:app","--host","0.0.0.0","--port","8093"]

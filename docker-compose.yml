@@ -5,6 +5,8 @@ services:
   rust:
     container_name: rust-menger
     build: ./rust-menger
+    volumes:
+      - ./log/rust:/logs
     ports:
       - "8087:8087"
 
@@ -14,6 +16,7 @@ services:
     working_dir: /app
     volumes:
       - ./java-menger:/app
+      - ./log/java:/logs
     command: mvn compile exec:java -Dexec.mainClass="com.example.menger.Main"
     ports:
       - "8088:8080"
@@ -21,18 +24,25 @@ services:
   go:
     container_name: go-menger
     build: ./go-menger
+    volumes:
+      - ./log/go:/logs
     ports:
       - "8089:8089"
 
   bash:
     container_name: bash-menger
     build: ./bash-menger
+    volumes:
+      - ./log/bash:/logs
+
     ports:
       - "8090:8090"
 
   dart:
     container_name: dart-menger
     build: ./dart-menger
+    volumes:
+      - ./log/dart:/logs
     ports:
       - "8091:8091"
 
@@ -42,6 +52,7 @@ services:
     working_dir: /app
     volumes:
       - ./javascript-menger:/app
+      - ./log/javascript:/logs
     command: node src/index.js
     ports:
       - "8092:8092"
@@ -52,6 +63,7 @@ services:
     working_dir: /app
     volumes:
       - ./python-menger:/app
+      - ./log/python:/logs
     command: uvicorn main:app --host 0.0.0.0 --port 8093
     ports:
       - "8093:8093"
@@ -62,6 +74,7 @@ services:
     working_dir: /app
     volumes:
       - ./php-menger:/app
+      - ./log/php:/logs
     command: php -S 0.0.0.0:8000 -t src
     ports:
       - "8094:8000"
@@ -72,6 +85,7 @@ services:
     working_dir: /app
     volumes:
       - ./csharp-menger:/app
+      - ./log/csharp:/logs
     command: dotnet run
     ports:
       - "8095:8080"

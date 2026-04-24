@@ -1,11 +1,16 @@
-FROM node:20
+FROM oven/bun:1 AS builder
 
 WORKDIR /app
+COPY package.json ./
+RUN bun install --production
 
-COPY package.json .
+COPY src ./src
+RUN bun build --compile --minify src/index.js --outfile service
 
-RUN npm install
+FROM debian:12-slim AS runner
 
-COPY . .
+WORKDIR /app
+COPY --from=builder /app/service /app/service
 
-CMD ["node","src/index.js"]
+EXPOSE 3000
+ENTRYPOINT ["/app/service"]

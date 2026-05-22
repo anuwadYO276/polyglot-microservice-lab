@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: jumpbox
+
+spec:
+  containers:
+    - name: busybox-echo
+      image: your-registry/jumpbox:v1
+
+      command: ["sh", "-c"]
+      args:
+        - echo Hello Jumpbox!! && sleep 3600
+
+      workingDir: /app
